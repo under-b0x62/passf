@@ -1,0 +1,145 @@
+from progressbar import *
+import time
+
+print("By -> Under-B\n\n")
+
+name = input("name: ")
+surname = input("surname: ")
+nick = input("nick: ")
+date = input("date: ")
+
+spouse = input("spouse name: ")
+spouse_surname = input("spouse surname: ")
+
+pet = input("pet`s name: ")
+
+print("save in pass.txt")
+
+loading = ProgressBar().start()
+for load in range(100):
+	time.sleep(0.01)
+	loading.update(load + 1)
+loading.finish()
+#date
+date_res = "{date_r}".format(date_r = date)
+
+# name
+name_name = name + name
+name_surname = name + surname
+name_nick = name + nick
+name_date = name + str(date)
+name_spuse = name + spouse
+name_spuse_surname = name + spouse_surname
+name_pet = name + pet
+
+name_res = "{nn}\n{ns}\n{nn2}\n{nd}\n{nss}\n{nss2}\n{np}".format(nn = name_name,
+															     ns = name_surname,
+															     nn2 = name_nick,
+															     nd = name_date,
+															     nss = name_spuse,
+															     nss2 = name_spuse_surname,
+															     np = name_pet)
+
+# surname
+surname_name = surname + name
+surname_surname = surname + surname
+surname_nick = surname + nick
+surname_date = surname + str(date)
+surname_spuse = surname + spouse
+surname_spuse_surname = surname = spouse_surname
+surname_pet = surname + pet
+
+surname_res ="{sn}\n{ss}\n{sn2}\n{sd}\n{ss2}\n{sss}\n{sp}".format(sn = surname_name,
+																  ss =surname_surname,
+																  sn2 = surname_nick,
+																  sd = surname_date,
+																  ss2 = surname_spuse,
+																  sss = surname_spuse_surname,
+																  sp = surname_pet)
+
+# nick
+nick_name = nick + name
+nick_surname = nick + surname
+nick_nick = nick + nick
+nick_date = nick + str(date)
+nick_spuse = nick + spouse
+nick_spuse_surname = nick + spouse_surname
+nick_pet = nick + pet
+
+nick_res = "{nn}\n{ns}\n{nn2}\n{nd}\n{ns2}\n{nss2}\n{np}".format(nn = nick_name,
+																 ns = nick_surname,
+																 nn2 = nick_nick,
+																 nd = nick_date,
+																 ns2 = nick_spuse,
+																 nss2 = nick_spuse_surname,
+																 np = nick_pet)
+
+# spuse
+spouse_name = spouse + name
+spouse_surname = spouse + surname
+spouse_nick = spouse + nick
+spouse_spouse = spouse + spouse
+spouse_spouse_surname = spouse + spouse_surname
+spouse_pet = spouse + pet
+
+spouse_res = "{sn}\n{ss}\n{sn2}\n{ss2}\n{sss}\n{sp}".format(sn = spouse_name,
+															ss = spouse_surname,
+															sn2 = spouse_nick,
+															ss2 = spouse_spouse,
+															sss = spouse_spouse_surname,
+															sp = spouse_pet)
+
+# spouse surnmae
+spouse_surname_name = spouse_surname + spouse_name
+spouse_surname_surname = spouse_surname + surname
+spouse_surname_nick = spouse_surname + nick
+spouse_surname_spouse = spouse_surname + spouse
+spouse_surname_spouse_surnmae = spouse_surname + spouse_surname
+spouse_surname_pet = spouse_surname + pet
+
+spouse_surname_res = "{ssn}\n{sss}\n{ssn2}\n{sss2}\n{ssss}\n{ssp}".format(ssn = spouse_surname_name,
+																		  sss = spouse_surname_surname,
+																		  ssn2 = spouse_surname_nick,
+																		  sss2 = spouse_surname_spouse,
+																		  ssss = spouse_surname_spouse_surnmae,
+																		  ssp = spouse_surname_pet)
+
+# pet
+pet_name = pet + name
+pet_surname = pet + surname
+pet_nick = pet + nick
+pet_spouse = pet + spouse
+pet_spouse_suranme = pet + spouse_surname
+pet_pet = pet + pet
+
+pet_res = "{pn}\n{ps}\n{pn2}\n{ps2}\n{pss}\n{pp}".format(pn = pet_name,
+														 ps = pet_surname,
+														 pn2 = pet_nick,
+														 ps2 = pet_spouse,
+														 pss = pet_spouse_suranme,
+														 pp = pet_pet)
+
+# main result
+main_result = name_res + "\n" + surname_res + "\n" + nick_res + "\n" + spouse_res + "\n" + spouse_surname_res + "\n" + pet_res + "\n" + str(date_res)
+
+try:
+	print("---------------------------------------------------------------------\n")
+	file_name = input("Enter the file name for saveing all results: ")
+
+	saveing = ProgressBar().start()
+	for progress in range(100):
+		time.sleep(0.01)
+		saveing.update(progress + 1)
+	saveing.finish()
+
+	if( file_name == None ):
+		print("all result writed in auto_save.txt")
+		auto_save = open("auto_save.txt", "w")
+		auto_save.write(main_result)
+		auto_save.close()
+	else:
+		save = open(file_name, "w")
+		save.write(main_result)
+		save.close()
+except:
+	print("program crash")
